@@ -1,0 +1,31 @@
+<?xml version ="1.0" encoding ="utf-8"?><!--  Learn More about how to use App Actions: https://developer.android.com/guide/actions/index.html -->
+    <actions>
+        <!--    Example Action -->
+        <action intentName="actions.intent.OPEN_APP_FEATURE">
+
+            //dynamic link created through firebase (used ayurveda link)
+            <fulfillment urlTemplate="https://intentswithgoogleassistant.page.link/open{?featureName}">
+                <parameter-mapping
+                    intentParameter="feature"
+                    urlParameter="featureName" />
+            </fulfillment>
+            <parameter name="feature">
+                <entity-set-reference entitySetId="FeatureEntitySet" />
+            </parameter>
+        </action>
+
+
+        <entity-set entitySetId="FeatureEntitySet">
+
+            <entity
+                name="Profile"
+                identifier="profile" />
+            <entity
+                name="Settings"
+                identifier="settings" />
+            <entity
+                name="Records"
+                identifier="records" />
+
+        </entity-set>
+    </actions>
